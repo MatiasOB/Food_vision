@@ -3,10 +3,10 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import pickle
-#from tensorflow_helper import multiclass_pred_new_image_plotly, load_and_prep_image
 import pandas as pd
 import os
 import gdown
+import time
 
 
 st.set_page_config(layout="wide")
@@ -157,6 +157,7 @@ def main():
             # fig2 = multiclass_pred_new_image_plotly(model, image, label_encoder.classes_)
             # col2.plotly_chart(fig2, use_container_width=True)
     if image is None:
+        time.sleep(1)
         imdefault = load_and_prepare_image("helado.jpg", rescale=False)
         prediction = model.predict(imdefault)
         predicted_class = np.argmax(prediction)
